@@ -1,3 +1,3 @@
 # IMY220_Project
 
-Wanderlens
+3rd Commit of the project
