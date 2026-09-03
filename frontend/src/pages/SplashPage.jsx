@@ -2,6 +2,7 @@ import { useState } from 'react';
 import LoginForm from '../components/LoginForm.jsx';
 import SignupForm from '../components/SignupForm.jsx';
 import './SplashPage.css';
+import heroImage from '../assets/HomePage.avif';
 
 export default function SplashPage() {
   const [mode, setMode] = useState('login');
@@ -9,25 +10,29 @@ export default function SplashPage() {
   return (
     <div className="splash">
       <section className="splash__hero">
-        <div className="splash__brand">
-          <span className="splash__brand-mark" aria-hidden="true">
-            PM
-          </span>
-          PictureMe
-        </div>
+        <img src={heroImage} alt="Camera lens close-up" className="splash__hero-image" />
 
-        <p className="splash__eyebrow">Photo sharing, reimagined</p>
-        <h1 className="splash__headline">
-          Your moments,
-          <br />
-          <em>beautifully</em>
-          <br />
-          shared.
-        </h1>
-        <p className="splash__lede">
-          PictureMe is where photographers and visual storytellers share their best work,
-          discover stunning imagery, and connect with a like-minded community.
-        </p>
+        <div className="splash__hero-content">
+          <div className="splash__brand">
+            <span className="splash__brand-mark" aria-hidden="true">
+              PM
+            </span>
+            PictureMe
+          </div>
+
+          <p className="splash__eyebrow">Photo sharing, reimagined</p>
+          <h1 className="splash__headline">
+            Your moments,
+            <br />
+            <em>beautifully</em>
+            <br />
+            shared.
+          </h1>
+          <p className="splash__lede">
+            PictureMe is where photographers and visual storytellers share their best work,
+            discover stunning imagery, and connect with a like-minded community.
+          </p>
+        </div>
       </section>
 
       <section className="splash__panel">

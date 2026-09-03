@@ -1,0 +1,55 @@
+.splash {
+  display: flex;
+  min-height: 100vh;
+}
+
+.splash__hero {
+  position: relative;
+  flex: 1.15;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.splash__hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.splash__hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.splash__headline {
+  font-size: 3rem;
+  line-height: 1.15;
+  margin: 1rem 0;
+}
+
+.splash__eyebrow,
+.splash__lede {
+  margin-bottom: 0.5rem;
+}
+
+.splash__panel {
+  flex: 0.85;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.splash__tabs {
+  margin-bottom: 1.5rem;
+}
+
+.splash__switch {
+  margin-top: 1rem;
+}
