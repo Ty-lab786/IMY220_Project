@@ -1,0 +1,115 @@
+.profile-header {
+    background: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.profile-header__cover {
+    height: 130px;
+    background: linear-gradient(120deg, var(--color-cream), #ece6d8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+}
+
+.profile-header__main {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    padding: 0 1.5rem;
+    margin-top: -34px;
+}
+
+.profile-header__avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: var(--color-ink);
+    color: var(--color-gold-light);
+    border: 4px solid var(--color-paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-family: var(--font-display);
+    flex-shrink: 0;
+}
+
+.profile-header__info {
+    flex: 1;
+    padding-bottom: 0.3rem;
+}
+
+.profile-header__info h1 {
+    font-size: 1.3rem;
+}
+
+.profile-header__meta {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+}
+
+.profile-header__tags {
+    display: flex;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+}
+
+.profile-header__tags li {
+    font-size: 0.72rem;
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    color: var(--color-text-muted);
+}
+
+.profile-header__bio {
+    padding: 1rem 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    max-width: 60ch;
+}
+
+.profile-header__stats {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 1.5rem;
+}
+
+.profile-header__stats div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+}
+
+.profile-header__stats strong {
+    font-size: 1.1rem;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+}
+
+.profile-header__links {
+    display: flex;
+    gap: 1rem;
+    padding: 0 1.5rem 1.25rem;
+}
+
+.profile-header__links a {
+    font-size: 0.8rem;
+    color: var(--color-gold);
+    border-bottom: 1px solid transparent;
+}
+
+.profile-header__links a:hover {
+    border-bottom-color: var(--color-gold);
+}

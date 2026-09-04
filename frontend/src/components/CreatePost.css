@@ -1,0 +1,43 @@
+.create-post {
+  padding: 1.1rem;
+}
+
+.create-post__title {
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.create-post__drop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 90px;
+  border: 1px dashed var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  padding: 0.75rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  background: var(--color-cream);
+}
+
+.create-post__file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.create-post__submit {
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+.create-post__success {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: #4b7a4f;
+}

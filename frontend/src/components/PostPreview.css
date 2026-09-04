@@ -1,0 +1,121 @@
+.post-preview {
+    padding: 1.1rem 1.1rem 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+.post-preview__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+}
+
+.post-preview__author {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.post-preview__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.post-preview__author>span:last-child {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.post-preview__name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.post-preview__time {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.post-preview__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 10;
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+}
+
+.post-preview__description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.6rem;
+}
+
+.post-preview__tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0;
+    margin: 0 0 0.85rem;
+}
+
+.post-preview__tags li {
+    font-size: 0.76rem;
+    color: var(--color-gold);
+    background: rgba(198, 154, 68, 0.1);
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+}
+
+.post-preview__footer {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-top: 1px solid var(--color-line);
+    padding-top: 0.6rem;
+}
+
+.post-preview__footer .btn-ghost {
+    font-size: 0.82rem;
+}
+
+.post-preview__add-album {
+    margin-left: auto;
+    font-size: 0.78rem;
+    padding: 0.4rem 0.75rem;
+}
+
+.post-thumb {
+    display: block;
+    aspect-ratio: 1;
+    background: var(--color-cream);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+.post-thumb__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 0.5rem;
+}

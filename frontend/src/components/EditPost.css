@@ -1,0 +1,17 @@
+.edit-post {
+  padding: 1.5rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.edit-post__title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.edit-post__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
