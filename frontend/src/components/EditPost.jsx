@@ -1,18 +1,29 @@
 import { useState } from 'react';
+import { api } from '../api.js';
 import './EditPost.css';
 
 export default function EditPost({ post, onCancel, onSave }) {
     const [description, setDescription] = useState(post?.description || '');
-    const [hashtags, setHashtags] = useState((post?.hashtags || []).join(' '));
+    const [hashtags, setHashtags] = useState((post?.hashtags || []).map((t) => `#${t}`).join(' '));
+    const [error, setError] = useState('');
+    const [saving, setSaving] = useState(false);
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log('Post updated (stub):', { description, hashtags });
-        onSave?.({ description, hashtags });
+        if (description.trim().length < 8) return setError('Description must be at least 8 characters.');
+        setSaving(true);
+        try {
+            const updated = await api(`/posts/${post._id}`, { method: 'PUT', body: { description, hashtags } });
+            onSave?.(updated);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setSaving(false);
+        }
     }
 
     return (
-        <form className="edit-post card" onSubmit={handleSubmit}>
+        <form className="edit-post card" onSubmit={handleSubmit} noValidate>
             <h2 className="edit-post__title">Edit post</h2>
 
             <div className="field">
@@ -22,7 +33,9 @@ export default function EditPost({ post, onCancel, onSave }) {
                     rows={4}
                     value={description}
                     onChange={(event) => setDescription(event.target.value)}
+                    className={error ? 'invalid' : ''}
                 />
+                {error && <p className="field-error">{error}</p>}
             </div>
 
             <div className="field">
@@ -39,8 +52,8 @@ export default function EditPost({ post, onCancel, onSave }) {
                 <button type="button" className="btn btn-outline" onClick={onCancel}>
                     Cancel
                 </button>
-                <button type="submit" className="btn btn-gold">
-                    Save changes
+                <button type="submit" className="btn btn-gold" disabled={saving}>
+                    {saving ? 'Saving...' : 'Save changes'}
                 </button>
             </div>
         </form>

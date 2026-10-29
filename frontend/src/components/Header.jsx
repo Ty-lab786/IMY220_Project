@@ -1,37 +1,38 @@
-import { Link, NavLink } from 'react-router-dom';
-import { currentUser } from '../data/dummyData.js';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { api, clearSession, myId } from '../api.js';
 import SearchInput from './SearchInput.jsx';
 import './Header.css';
 
 export default function Header() {
+    const navigate = useNavigate();
+
+    async function handleLogout() {
+        try {
+            await api('/auth/logout', { method: 'POST' });
+        } catch {
+            // logging out locally is enough even if the request fails
+        }
+        clearSession();
+        navigate('/');
+    }
+
     return (
-        <header className="site-header">
-            <Link to="/home" className="site-header__brand">
-                <span className="site-header__mark" aria-hidden="true">
-                    PM
-                </span>
-                PictureMe
-            </Link>
-
-            <SearchInput />
-
-            <nav className="site-header__nav" aria-label="Primary">
-                <NavLink to="/home" className="site-header__link">
-                    Home
-                </NavLink>
-                <NavLink to={`/profile/${currentUser.id}`} className="site-header__link">
-                    Profile
-                </NavLink>
-                <NavLink to="/post/post_1" className="site-header__link">
-                    Post
-                </NavLink>
-                <Link to={`/profile/${currentUser.id}`} className="site-header__avatar" title={currentUser.name}>
-                    {currentUser.name.charAt(0)}
+        <header className="header">
+            <div className="header-container">
+                <Link to="/home" className="brand-logo">
+                    <span className="brand-logo__mark">PM</span> PictureMe
                 </Link>
-                <Link to="/" className="site-header__link site-header__link--muted">
-                    Log out
-                </Link>
-            </nav>
+
+                <SearchInput />
+
+                <nav className="nav-links">
+                    <NavLink to="/home" className="nav-item">Feed</NavLink>
+                    <NavLink to={`/profile/${myId()}`} className="nav-item">Profile</NavLink>
+                    <button type="button" onClick={handleLogout} className="btn btn-outline logout-btn">
+                        Log out
+                    </button>
+                </nav>
+            </div>
         </header>
     );
 }

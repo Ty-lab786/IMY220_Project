@@ -8,8 +8,8 @@ export default function PostPage() {
 
     return (
         <div className="page-shell post-page-route">
-            <Post key={id} />
-            <Comments />
+            <Post key={id} postId={id} />
+            <Comments key={`c-${id}`} postId={id} />
         </div>
     );
 }

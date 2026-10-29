@@ -119,3 +119,23 @@
     text-align: center;
     padding: 0.5rem;
 }
+.post-preview__image {
+    overflow: hidden;
+    background: var(--color-cream);
+}
+
+.post-preview__image img,
+.post-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-preview__tags a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.post-preview__liked {
+    color: var(--color-gold) !important;
+}

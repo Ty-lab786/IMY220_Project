@@ -1,52 +1,70 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PostPreview from './PostPreview.jsx';
-import { posts as allPosts, friends } from '../data/dummyData.js';
+import { api } from '../api.js';
 import './Feed.css';
 
-const friendIds = new Set(friends.map((friend) => friend.id));
-
-export default function Feed() {
-    const [scope, setScope] = useState('friends');
+// feed="global" shows everyone's posts, feed="local" shows mine + my friends'
+export default function Feed({ refreshKey = 0 }) {
+    const [scope, setScope] = useState('global');
     const [sort, setSort] = useState('newest');
+    const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
 
-    const visiblePosts = allPosts
-        .filter((post) => (scope === 'friends' ? friendIds.has(post.author.id) || post.author.id === 'user_1' : true))
-        .slice()
-        .sort((a, b) => (sort === 'popular' ? b.likes - a.likes : 0));
+    useEffect(() => {
+        let cancelled = false;
+        api(`/posts?feed=${scope}`)
+            .then((data) => {
+                if (cancelled) return;
+                setPosts(data);
+                setError('');
+            })
+            .catch((err) => !cancelled && setError(err.message))
+            .finally(() => !cancelled && setLoading(false));
+        return () => {
+            cancelled = true;
+        };
+    }, [scope, refreshKey]);
+
+    const sorted = [...posts].sort((a, b) =>
+        sort === 'popular'
+            ? (b.likes?.length || 0) - (a.likes?.length || 0)
+            : new Date(b.createdAt) - new Date(a.createdAt)
+    );
 
     return (
-        <section className="feed" aria-label="Post feed">
+        <section className="feed">
             <div className="feed__controls">
                 <div className="feed__scope">
-                    <button
-                        type="button"
-                        className={`btn btn-outline ${scope === 'friends' ? 'feed__scope-btn--active' : ''}`}
-                        onClick={() => setScope('friends')}
-                    >
-                        Local feed (friends)
-                    </button>
-                    <button
-                        type="button"
-                        className={`btn btn-outline ${scope === 'global' ? 'feed__scope-btn--active' : ''}`}
-                        onClick={() => setScope('global')}
-                    >
-                        Global feed (all users)
-                    </button>
+                    {['global', 'local'].map((s) => (
+                        <button
+                            key={s}
+                            type="button"
+                            className={`btn btn-outline ${scope === s ? 'feed__scope-btn--active' : ''}`}
+                            onClick={() => {
+                                if (s !== scope) setLoading(true);
+                                setScope(s);
+                            }}
+                        >
+                            {s === 'global' ? 'Global feed' : 'Friends feed'}
+                        </button>
+                    ))}
                 </div>
                 <label className="feed__sort">
-                    Sort by
-                    <select value={sort} onChange={(event) => setSort(event.target.value)}>
+                    Sort by{' '}
+                    <select value={sort} onChange={(e) => setSort(e.target.value)}>
                         <option value="newest">Newest</option>
                         <option value="popular">Most liked</option>
                     </select>
                 </label>
             </div>
 
-            {visiblePosts.length === 0 ? (
-                <p className="feed__empty">No posts to show yet.</p>
-            ) : (
-                visiblePosts.map((post) => <PostPreview key={post.id} post={post} variant="feed" />)
+            {loading && <p className="status">Loading feed...</p>}
+            {error && <p className="status status--error">{error}</p>}
+            {!loading && !error && sorted.length === 0 && (
+                <p className="feed__empty">No posts yet. Be the first to share something!</p>
             )}
+            {!loading && !error && sorted.map((post) => <PostPreview key={post._id} post={post} />)}
         </section>
     );
 }

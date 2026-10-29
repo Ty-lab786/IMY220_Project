@@ -1,112 +1,74 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { api, saveSession } from '../api.js';
 import './AuthForm.css';
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
-
-const emptyErrors = { email: '', password: '' };
-
 export default function LoginForm() {
-    const navigate = useNavigate();
-    const [form, setForm] = useState({ email: '', password: '' });
-    const [errors, setErrors] = useState(emptyErrors);
-    const [status, setStatus] = useState({ loading: false, message: '' });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    function validate(values) {
-        const nextErrors = { ...emptyErrors };
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function validate() {
+    const next = {};
+    if (!email.trim()) next.email = 'Email is required.';
+    else if (!/^\S+@\S+\.\S+$/.test(email)) next.email = 'Please enter a valid email.';
+    if (!password) next.password = 'Password is required.';
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  }
 
-        if (!values.email.trim()) {
-            nextErrors.email = 'Email address is required.';
-        } else if (!emailPattern.test(values.email)) {
-            nextErrors.email = 'Enter a valid email address.';
-        }
-
-        if (!values.password) {
-            nextErrors.password = 'Password is required.';
-        } else if (values.password.length < 6) {
-            nextErrors.password = 'Password must be at least 6 characters.';
-        }
-
-        setErrors(nextErrors);
-        return !nextErrors.email && !nextErrors.password;
+  async function handleLogin(e) {
+    e.preventDefault();
+    setServerError('');
+    if (!validate()) return;
+    setLoading(true);
+    try {
+      const data = await api('/auth/login', { method: 'POST', body: { email, password } });
+      saveSession(data.token, data.user);
+      navigate('/home');
+    } catch (err) {
+      setServerError(err.message);
+    } finally {
+      setLoading(false);
     }
+  }
 
-    function handleChange(event) {
-        const { name, value } = event.target;
-        const next = { ...form, [name]: value };
-        setForm(next);
-        validate(next);
-    }
+  return (
+    <form className="auth-form" onSubmit={handleLogin} noValidate>
+      {serverError && <div className="auth-form__error">{serverError}</div>}
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        if (!validate(form)) return;
+      <div className="field">
+        <label htmlFor="login-email">Email address</label>
+        <input
+          id="login-email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="name@example.com"
+          className={errors.email ? 'invalid' : ''}
+        />
+        {errors.email && <p className="field-error">{errors.email}</p>}
+      </div>
 
-        setStatus({ loading: true, message: '' });
-        try {
-            const response = await fetch(`${API_BASE}/api/auth/signin`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(form),
-            });
-            const data = await response.json();
+      <div className="field">
+        <label htmlFor="login-password">Password</label>
+        <input
+          id="login-password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="••••••••"
+          className={errors.password ? 'invalid' : ''}
+        />
+        {errors.password && <p className="field-error">{errors.password}</p>}
+      </div>
 
-            if (!response.ok || !data.success) {
-                setStatus({ loading: false, message: data.message || 'Sign in failed.' });
-                return;
-            }
-
-            setStatus({ loading: false, message: 'Signed in successfully.' });
-            navigate('/home');
-        } catch (error) {
-            setStatus({
-                loading: false,
-                message: 'Could not reach the server. Is the backend running?',
-            });
-        }
-    }
-
-    const isValid = form.email.trim() && form.password.length >= 6;
-
-    return (
-        <form className="auth-form" onSubmit={handleSubmit} noValidate>
-            <div className="field">
-                <label htmlFor="login-email">Email address</label>
-                <input
-                    id="login-email"
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="your@email.com"
-                    className={errors.email ? 'invalid' : ''}
-                />
-                {errors.email && <p className="field-error">{errors.email}</p>}
-            </div>
-
-            <div className="field">
-                <label htmlFor="login-password">Password</label>
-                <input
-                    id="login-password"
-                    name="password"
-                    type="password"
-                    value={form.password}
-                    onChange={handleChange}
-                    placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
-                    className={errors.password ? 'invalid' : ''}
-                />
-                {errors.password && <p className="field-error">{errors.password}</p>}
-                <a href="#forgot" className="auth-form__forgot">
-                    Forgot password?
-                </a>
-            </div>
-
-            <button type="submit" className="btn btn-gold auth-form__submit" disabled={!isValid || status.loading}>
-                {status.loading ? 'Signing in...' : 'Log in to PictureMe'}
-            </button>
-
-            {status.message && <p className="auth-form__status">{status.message}</p>}
-        </form>
-    );
+      <button type="submit" disabled={loading} className="btn btn-gold auth-form__submit">
+        {loading ? 'Signing in...' : 'Sign in'}
+      </button>
+    </form>
+  );
 }
