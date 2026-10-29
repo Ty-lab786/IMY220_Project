@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "6ae3b28583cff24583e49bda",
+    "label": "Spam"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bdb",
+    "label": "Inappropriate content"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bdc",
+    "label": "Copyright violation"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bdd",
+    "label": "Harassment"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bde",
+    "label": "Other"
+  }
+]

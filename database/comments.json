@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "6ae3b28583cff24583e49bd7",
+    "postId": "6ae3b28583cff24583e49bcc",
+    "user": "6ae3b28483cff24583e49bc7",
+    "text": "This light is unreal!",
+    "createdAt": "2026-10-29T20:54:29.093Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd8",
+    "postId": "6ae3b28583cff24583e49bcc",
+    "user": "6ae3b28483cff24583e49bc8",
+    "text": "Great composition.",
+    "createdAt": "2026-10-29T20:54:29.093Z"
+  }
+]

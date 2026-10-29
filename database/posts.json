@@ -1,0 +1,108 @@
+[
+  {
+    "_id": "6ae3b28583cff24583e49bcc",
+    "owner": "6ae3b28483cff24583e49bc6",
+    "description": "Golden sunset over the horizon.",
+    "hashtags": [
+      "gold",
+      "sunset"
+    ],
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+    "likes": [
+      "6ae3b28483cff24583e49bc6"
+    ],
+    "views": 2,
+    "createdAt": "2026-10-29T20:44:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bcd",
+    "owner": "6ae3b28483cff24583e49bc7",
+    "description": "Exploring modern architecture with metallic highlights.",
+    "hashtags": [
+      "architecture"
+    ],
+    "image": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800",
+    "likes": [],
+    "views": 2,
+    "createdAt": "2026-10-29T19:54:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bce",
+    "owner": "6ae3b28483cff24583e49bc8",
+    "description": "City lights reflecting on rainy asphalt.",
+    "hashtags": [
+      "streetphotography",
+      "night"
+    ],
+    "image": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800",
+    "likes": [
+      "6ae3b28483cff24583e49bc6"
+    ],
+    "views": 0,
+    "createdAt": "2026-10-29T18:54:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bcf",
+    "owner": "6ae3b28483cff24583e49bc9",
+    "description": "Dark mode setup with custom ambient lighting.",
+    "hashtags": [
+      "ambient",
+      "setup"
+    ],
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+    "likes": [],
+    "views": 0,
+    "createdAt": "2026-10-29T16:54:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd0",
+    "owner": "6ae3b28483cff24583e49bca",
+    "description": "Nature showcasing its own metallic gold shades.",
+    "hashtags": [
+      "gold",
+      "autumn"
+    ],
+    "image": "https://images.unsplash.com/photo-1507272931001-fc06c17e4f43?w=800",
+    "likes": [],
+    "views": 0,
+    "createdAt": "2026-10-29T10:54:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd1",
+    "owner": "6ae3b28483cff24583e49bcb",
+    "description": "Close-up of gold craftsmanship.",
+    "hashtags": [
+      "luxury",
+      "style"
+    ],
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+    "likes": [],
+    "views": 0,
+    "createdAt": "2026-10-29T00:54:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd2",
+    "owner": "6ae3b28483cff24583e49bc7",
+    "description": "Calm ocean waves meeting the shore.",
+    "hashtags": [
+      "coastal"
+    ],
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800",
+    "likes": [],
+    "views": 0,
+    "createdAt": "2026-10-28T11:34:29.020Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd3",
+    "owner": "6ae3b28483cff24583e49bc8",
+    "description": "Late night creative sessions.",
+    "hashtags": [
+      "vibes",
+      "night"
+    ],
+    "image": "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800",
+    "likes": [],
+    "views": 0,
+    "createdAt": "2026-10-27T18:54:29.020Z"
+  }
+]

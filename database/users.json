@@ -1,0 +1,106 @@
+[
+  {
+    "_id": "6ae3b28483cff24583e49bc6",
+    "password": "$2a$10$Rnl8ugshBQVzPwcoZJxmoeh2z7k.21JJGxWh75mZlr45aonWbmcVm",
+    "role": "admin",
+    "location": "",
+    "friends": [
+      "6ae3b28483cff24583e49bc7",
+      "6ae3b28483cff24583e49bc8",
+      "6ae3b28483cff24583e49bc9"
+    ],
+    "requestsReceived": [],
+    "requestsSent": [
+      "6ae3b28483cff24583e49bc9"
+    ],
+    "username": "marker_test",
+    "email": "test@test.com",
+    "name": "Marker Test",
+    "bio": "Official Marker Test Account",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150",
+    "createdAt": "2026-10-29T20:54:28.819Z"
+  },
+  {
+    "_id": "6ae3b28483cff24583e49bc7",
+    "password": "$2a$10$Rnl8ugshBQVzPwcoZJxmoeh2z7k.21JJGxWh75mZlr45aonWbmcVm",
+    "role": "user",
+    "location": "",
+    "friends": [
+      "6ae3b28483cff24583e49bc6"
+    ],
+    "requestsReceived": [],
+    "requestsSent": [],
+    "username": "alex_gold",
+    "email": "alex@example.com",
+    "name": "Alex Gold",
+    "bio": "Photography enthusiast and visual storyteller.",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150",
+    "createdAt": "2026-10-29T20:54:28.819Z"
+  },
+  {
+    "_id": "6ae3b28483cff24583e49bc8",
+    "password": "$2a$10$Rnl8ugshBQVzPwcoZJxmoeh2z7k.21JJGxWh75mZlr45aonWbmcVm",
+    "role": "user",
+    "location": "",
+    "friends": [
+      "6ae3b28483cff24583e49bc6"
+    ],
+    "requestsReceived": [],
+    "requestsSent": [],
+    "username": "sophia_vibe",
+    "email": "sophia@example.com",
+    "name": "Sophia Vibe",
+    "bio": "Capturing urban architecture & dark aesthetics.",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+    "createdAt": "2026-10-29T20:54:28.819Z"
+  },
+  {
+    "_id": "6ae3b28483cff24583e49bc9",
+    "password": "$2a$10$Rnl8ugshBQVzPwcoZJxmoeh2z7k.21JJGxWh75mZlr45aonWbmcVm",
+    "role": "user",
+    "location": "",
+    "friends": [
+      "6ae3b28483cff24583e49bc6"
+    ],
+    "requestsReceived": [
+      "6ae3b28483cff24583e49bc6"
+    ],
+    "requestsSent": [],
+    "username": "dev_chris",
+    "email": "chris@example.com",
+    "name": "Chris Dev",
+    "bio": "Fullstack developer & night owl.",
+    "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
+    "createdAt": "2026-10-29T20:54:28.819Z"
+  },
+  {
+    "_id": "6ae3b28483cff24583e49bca",
+    "password": "$2a$10$Rnl8ugshBQVzPwcoZJxmoeh2z7k.21JJGxWh75mZlr45aonWbmcVm",
+    "role": "user",
+    "location": "",
+    "friends": [],
+    "requestsReceived": [],
+    "requestsSent": [],
+    "username": "linda_art",
+    "email": "linda@example.com",
+    "name": "Linda Art",
+    "bio": "Digital artist focusing on gold highlights.",
+    "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150",
+    "createdAt": "2026-10-29T20:54:28.819Z"
+  },
+  {
+    "_id": "6ae3b28483cff24583e49bcb",
+    "password": "$2a$10$Rnl8ugshBQVzPwcoZJxmoeh2z7k.21JJGxWh75mZlr45aonWbmcVm",
+    "role": "user",
+    "location": "",
+    "friends": [],
+    "requestsReceived": [],
+    "requestsSent": [],
+    "username": "marco_shoots",
+    "email": "marco@example.com",
+    "name": "Marco Shoots",
+    "bio": "Traveler & sunset chaser.",
+    "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=150",
+    "createdAt": "2026-10-29T20:54:28.819Z"
+  }
+]

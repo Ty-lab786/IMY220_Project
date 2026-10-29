@@ -1,0 +1,43 @@
+[
+  {
+    "_id": "6ae3b28583cff24583e49bd4",
+    "owner": "6ae3b28483cff24583e49bc6",
+    "name": "Marker Test Showcase",
+    "description": "Test album for marking.",
+    "hashtags": [
+      "test"
+    ],
+    "posts": [
+      "6ae3b28583cff24583e49bcc"
+    ],
+    "createdAt": "2026-10-29T20:54:29.058Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd5",
+    "owner": "6ae3b28483cff24583e49bc7",
+    "name": "Golden Aesthetic",
+    "description": "High-contrast black and gold.",
+    "hashtags": [
+      "gold"
+    ],
+    "posts": [
+      "6ae3b28583cff24583e49bcd",
+      "6ae3b28583cff24583e49bd2"
+    ],
+    "createdAt": "2026-10-29T20:54:29.058Z"
+  },
+  {
+    "_id": "6ae3b28583cff24583e49bd6",
+    "owner": "6ae3b28483cff24583e49bc8",
+    "name": "Urban Chronicles",
+    "description": "Late night street photography.",
+    "hashtags": [
+      "street"
+    ],
+    "posts": [
+      "6ae3b28583cff24583e49bce",
+      "6ae3b28583cff24583e49bd3"
+    ],
+    "createdAt": "2026-10-29T20:54:29.058Z"
+  }
+]
